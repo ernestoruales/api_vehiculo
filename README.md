@@ -52,7 +52,8 @@ define("DB_TRANS_PASSWORD", "");
 $ GET      /api/vehiculo/{id}     // Datos del vehiculo
 $ GET      /api/vehiculos/     	  // Datos de los vehiculos
 $ POST     /api/vehiculo/     	  // Registrar un vehiculo
-$ PUT      /api/vehiculo/{id}     	  // Actualiza un vehiculo por ID
+$ PUT      /api/vehiculo/{id}     // Actualiza un vehiculo por ID
+$ DELETE   /api/vehiculo/{id}     // Elimina un vehiculo por ID
 ```
 ...
 ### JSON Vehiculo
@@ -72,10 +73,24 @@ HTTPCODE: 200 OK
 ### Api Endpoints Cliente
 
 ```
-$ GET      /api/cliente/{id}      // Datos de la agenda
+$ GET      /api/cliente/{id}     // Datos del cliente
+$ GET      /api/clientes/     	 // Datos de los cliente
+$ POST     /api/cliente/     	 // Registrar un cliente
+$ PUT      /api/cliente/{id}     // Actualiza un cliente por ID
+$ DELETE   /api/cliente/{id}     // Elimina un cliente por ID
 
 ```
-
+...
+### JSON Cliente
+```
+{
+    "nombre": "",
+	"apellido": "",
+	"telefono": "",
+	"email": 2023
+}
+HTTPCODE: 200 OK
+```
 ...
 
 ### Responses (POST/PUT/GET)
