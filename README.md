@@ -1,4 +1,4 @@
-# API Modulo Agenda del Centro de Emprendimiento
+# API Modulo Vehiculo
 
 This is the simple REST Api implementing basic CRUD operations related to a user.
 
@@ -8,7 +8,7 @@ This is the simple REST Api implementing basic CRUD operations related to a user
 
 To get the latest source you can use git clone.
 
-`$ git clone https://github.com/epicoguayaquil/api_agenda.git /path/to/api_agenda`
+`$ git clone https://github.com/ernestoruales/api_vehiculo.git /path/to/vehiculo`
 
 #### Composer
 
@@ -21,38 +21,26 @@ To install it globally
 `$ sudo mv composer.phar /usr/local/bin/composer`
 
 ```
-$ cd /path/to/api_agenda
+$ cd /path/to/vehiculo
 $ composer update
 $ composer install
 ```
 
 ## Database Setup
 
- - Import `dababase/mysql.sql` in your MySQL Server, this will create the tables
- - Copy `.env.example` to `.env`  
- - Update .env with your database credentials
+ - Import `scripsDB/ScriptAngular.sql` in your MySQL Server, this will create the tables
+ - Update `src/enviroment.php` with your database credentials
  
 ```
 // .env 
 
 # Database
-APP_ENV=local
-DB_SEG_DRIVER=mysql
-DB_SEG_HOST=localhost
-DB_SEG_NAME=bd_seg
-DB_SEG_USERNAME=root
-DB_SEG_PASSWORD=
-DB_SEG_PORT=3306
-DB_TRANS_DRIVER=mysql
-DB_TRANS_HOST=localhost
-DB_TRANS_NAME=bd_trans
-DB_TRANS_USERNAME=root
-DB_TRANS_PASSWORD=
-DB_TRANS_PORT=3306
-JWT_TOKEN=authorization
-JWT_URL=http://localhost/api_seguridad/public/api/login/verificar
-IGNORE_TOKEN_PROGRAMA=["url"]
-
+define("DB_TRANS_DRIVER", "mysql");
+define("DB_TRANS_PORT", "3306");
+define("DB_TRANS_HOST", "localhost");
+define("DB_TRANS_NAME", "prueba");
+define("DB_TRANS_USERNAME", "root");
+define("DB_TRANS_PASSWORD", "");
 ```
 
 ## Usage
@@ -61,16 +49,34 @@ IGNORE_TOKEN_PROGRAMA=["url"]
 
 ```
 
-$ GET      /api/evento/{id}        // Datos del taller o evento
-$ GET      /api/agenda/{id}     // Datos de la agenda
-
+$ GET      /api/vehiculo/{id}     // Datos del vehiculo
+$ GET      /api/vehiculos/     	  // Datos de los vehiculos
+$ POST      /api/vehiculo/     	  // Registrar un vehiculo
 ```
-
-
-### Requests (POST/PUT/GET)
-
+{
+    "codigo": "001",
+	"marca": "",
+	"modelo": "",
+	"anio": 2023,
+	"calificacion": 5,
+	"foto": "" // URL de la foto
+}
+HTTPCODE: 200 OK
 ```
-Header: Autorization:Token // Toda las peticiones deben llevar el token
+$ PUT      /api/vehiculo/{id}     	  // Actualiza un vehiculo por ID
+```
+{
+    "codigo": "001",
+	"marca": "",
+	"modelo": "",
+	"anio": 2023,
+	"calificacion": 5,
+	"foto": "" // URL de la foto
+}
+HTTPCODE: 200 OK
+```
+$ GET      /api/cliente/{id}      // Datos de la agenda
+
 ```
 
 ...
@@ -86,6 +92,5 @@ Cada servicio rest api retorna la siguiente trama:
     "data":"...",
 	"error":"[{...},{...}]" // opcional en caso de error
 }
-Header: Autorization:Token
 HTTPCODE: 200 OK
 ```
