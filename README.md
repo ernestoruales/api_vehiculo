@@ -45,26 +45,18 @@ define("DB_TRANS_PASSWORD", "");
 
 ## Usage
 
-### Api Endpoints
+### Api Endpoints Vehiculo
 
 ```
 
 $ GET      /api/vehiculo/{id}     // Datos del vehiculo
 $ GET      /api/vehiculos/     	  // Datos de los vehiculos
-$ POST      /api/vehiculo/     	  // Registrar un vehiculo
-```
-{
-    "codigo": "001",
-	"marca": "",
-	"modelo": "",
-	"anio": 2023,
-	"calificacion": 5,
-	"foto": "" // URL de la foto
-}
-HTTPCODE: 200 OK
-```
+$ POST     /api/vehiculo/     	  // Registrar un vehiculo
 $ PUT      /api/vehiculo/{id}     	  // Actualiza un vehiculo por ID
 ```
+...
+### JSON Vehiculo
+```
 {
     "codigo": "001",
 	"marca": "",
@@ -74,6 +66,11 @@ $ PUT      /api/vehiculo/{id}     	  // Actualiza un vehiculo por ID
 	"foto": "" // URL de la foto
 }
 HTTPCODE: 200 OK
+```
+
+...
+### Api Endpoints Cliente
+
 ```
 $ GET      /api/cliente/{id}      // Datos de la agenda
 
